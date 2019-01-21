@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JQuery Animation</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<style>
+body {
+  background-color: black;
+  color:white;
+  font-family: 'Roboto', sans-serif;
+  align:center;
+}
+
+.center {
+  text-align: center;
+}
+
+#divv{
+  width: 200px;
+  height: 200px;
+  position: relative; /* Box would not move without being absolute or relative*/
+  background-color: orange;
+  border-radius: 5%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 200px;
+  border:5px solid red;
+}
+
+button {
+    background-color: yellow;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.button6 {
+    background-color: red !important;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".button1").click(function move(){
+        $("#divv").animate({
+          left: '300px'},
+        "slow");
+    });
+
+    $(".button2").click(function opa(){
+        $("#divv").animate({opacity:'.0'}, 500);
+        $("#divv").animate({opacity:'.5'}, 1000);
+        $("#divv").animate({opacity:'.0'}, 500);
+        $("#divv").animate({opacity:'1'}, 1000);
+    });
+
+    $(".button3").click(function cir(){
+        $("#divv").animate({"border-radius": "50%" });
+        $("#divv").animate({"border-radius": "5%" });
+        $("#divv").animate({"border-radius": "50%" });
+    });
+
+    $(".button4").click(function siz(){
+        $("#divv").animate({height: '+=200px', width: '+=200px'});
+    });
+
+    $(".button5").click(function craz(){
+      $("#divv").animate({height: '+=300px', top: '+=100px', opacity: '0.4'}, "slow");
+      $("#divv").animate({width: '+=300px', left: '-=100px', opacity: '0.8'}, "slow");
+      $("#divv").animate({"border-radius": "50%"}, "slow");
+      $("#divv").animate({height: '100px', right: '100px', opacity: '0.4'}, "slow");
+      $("#divv").animate({width: '100px', top: '200px', opacity: '0.8'}, "slow");
+      $("#divv").animate({height: '+=300px', top: '+=100px', opacity: '0.4'}, "slow");
+      $("#divv").animate({width: '+=300px', left: '-=100px', opacity: '0.8'}, "slow");
+      $("#divv").animate({"border-radius": "50%"}, "slow");
+      $("#divv").animate({height: '100px', right: '100px', opacity: '0.4'}, "slow");
+      $("#divv").animate({width: '100px', top: '200px', opacity: '0.8'}, "slow");
+    });
+
+    $(".button6").click(function(){
+        $("#divv").stop(true);
+    });
+
+});
+</script>
+</head>
+
+<body>
+<div class="center">
+<br>
+<h1>Click the buttons to animate the shape!</h1>
+<button class="button1" onclick="move()">Move</button>
+<button class="button2" onclick="opa()">Opacity</button>
+<button class="button3" onclick="cir()">Into a Circle</button>
+<button class="button4" onclick="siz()">Size</button>
+<button width="60%" class="button5" onclick="craz()">Get CRAZY</button>
+<br><br>
+<button class="button6" onclick="stop()">STOP</button>
+<br><br><br><br>
+
+<center>
+  <div id="divv"></div>
+</center>
+
+</div>
+</body>
+</html>
